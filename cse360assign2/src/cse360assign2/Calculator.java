@@ -16,11 +16,17 @@ public class Calculator {
 	private int total;
 	
 	/**
+	 * String containing the history of operations performed.
+	 */
+	private String operationHistory;
+	
+	/**
 	 * Constructor for a calculator object.
 	 * Initialize the total to 0.
 	 */
 	public Calculator () {
 		total = 0;  // not needed - included for clarity
+		operationHistory = "0";
 	}
 	
 	/**
@@ -32,31 +38,38 @@ public class Calculator {
 	}
 	
 	/**
-	 * This method will add a given value to the total.
+	 * This method will add a given value to the total. It will also update
+	 * the operations string.
 	 * @param value The value to be added to the current total.
 	 */
 	public void add (int value) {
 		total = total + value;
+		operationHistory = operationHistory + " + " + value;
 	}
 	
 	/**
-	 * This method will subtract a given value from the total.
+	 * This method will subtract a given value from the total. It will also
+	 * update the operations string.
 	 * @param value The value to be subtracted from the current total.
 	 */
 	public void subtract (int value) {
 		total = total - value;
+		operationHistory = operationHistory + " - " + value;
 	}
 	
 	/**
-	 * This method will multiply a value by the total.
+	 * This method will multiply a value by the total. It will also update
+	 * the operations string.
 	 * @param value The value to be multiplied by the total.
 	 */
 	public void multiply (int value) {
 		total = total * value;
+		operationHistory = operationHistory + " * " + value;
 	}
 	
 	/**
-	 * This method will be divide the total by the given value.
+	 * This method will be divide the total by the given value. It will also
+	 * update the operations string.
 	 * @param value The value that will divide the current total.
 	 */
 	public void divide (int value) {
@@ -66,13 +79,15 @@ public class Calculator {
 		else {
 			total = total / value;
 		}
+		operationHistory = operationHistory + " / " + value;
 	}
 	
 	/**
-	 * Retrieve the current total of the calculator object.
-	 * @return The current total of the calculator object.
+	 * This method will report all operations performed on total in the form of a
+	 * string.
+	 * @return A string that contains all of the operations performed on total.
 	 */
 	public String getHistory () {
-		return "";
+		return operationHistory;
 	}
 }
